@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Form from "./Form"
 import Input from "./Input"
 
 export const ContactForm = () => {
+    const focusableInputRef = useRef();
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -21,13 +22,19 @@ export const ContactForm = () => {
         console.log(formData);
     }
 
+    const handleWriteToUsClick = () => {
+        if (focusableInputRef.current) focusableInputRef.current.focus();
+    } 
+
     return (
         <Form onSubmit={handleSubmit}>
+            <button type='button' onClick={handleWriteToUsClick}>Napisz do nas</button>
             <Input 
                 placeholder="Imię" 
                 name="name" 
                 onChange={handleFormChange} 
                 value={formData.name} label="Imię"
+                ref={focusableInputRef}
             />
             <Input 
                 placeholder="Numer telefonu" 
