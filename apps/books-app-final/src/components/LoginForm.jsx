@@ -1,25 +1,19 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 export const LoginForm = () => {
-    const [formData, setFormData] = useState({
-        username: '',
-        password: ''
-    });
-
-    const handleFormChange = (e) => {
-        setFormData((prev) => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }))
-    }
+    const usernameRef = useRef();
+    const passwordRef = useRef();
 
     return (
         <form onSubmit={(e) => {
             e.preventDefault();
-            console.log(formData);
+            console.log({
+                username: usernameRef.current.value,
+                password: passwordRef.current.value
+            });
         }}>
-            <input type="text" value={formData.username} onChange={handleFormChange} name="username" placeholder="Nazwa użytkownika" />
-            <input type="password" value={formData.password} onChange={handleFormChange} name="password" placeholder="Hasło" />
+            <input type="text" name="username" placeholder="Nazwa użytkownika" ref={usernameRef} />
+            <input type="password" name="password" placeholder="Hasło" ref={passwordRef} />
             <button type="submit">Zaloguj</button>
         </form>
     )
