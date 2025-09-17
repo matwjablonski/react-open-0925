@@ -8,7 +8,9 @@ function App() {
 
   return (
    <div>
-    <Header name="Mateusz" />
+    <Header name="Mateusz">
+      Jesteś zalogowany
+    </Header>
     <Books books={books} />
     <Footer />
    </div>

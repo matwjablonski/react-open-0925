@@ -1,10 +1,11 @@
 import { LoginForm } from "./LoginForm";
 
-const Header = ({ name }) => {
+const Header = ({ name, children }) => {
     return (
         <div>
             <LoginForm />
             <h1>Witaj w aplikacji książkowej {name}</h1>
+            {children}
         </div>
     )
 }
