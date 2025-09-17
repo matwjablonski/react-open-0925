@@ -1,18 +1,16 @@
 import './App.css'
-import Hello from './Hello'
+import Header from './components/Header'
+import { Books } from './components/Books'
+import { Footer } from './components/Footer'
 import { books } from './data'
 
 function App() {
 
   return (
    <div>
-    <Hello name="Mateusz" data={books} />
-    <ul>
-      <li>Bitwa o Skandię. Zwiadowcy.</li>
-      <li>Wiedźmin. Ostatnie życzenie.</li>
-      <li>Harry Potter. Kamień filozoficzny.</li>
-    </ul>
-    <footer>Aplikacja przygotowana przez Mateusz Jabłoński</footer>
+    <Header name="Mateusz" />
+    <Books books={books} />
+    <Footer />
    </div>
   )
 }
