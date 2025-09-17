@@ -1,10 +1,12 @@
 import './App.css'
+import Hello from './Hello'
+import { books } from './data'
 
 function App() {
 
   return (
    <div>
-    <h2>Witaj w aplikacji książkowej</h2>
+    <Hello name="Mateusz" data={books} />
     <ul>
       <li>Bitwa o Skandię. Zwiadowcy.</li>
       <li>Wiedźmin. Ostatnie życzenie.</li>
