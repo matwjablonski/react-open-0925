@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
    <div>
     <h2>Witaj w aplikacji książkowej</h2>
+    <ul>
+      <li>Bitwa o Skandię. Zwiadowcy.</li>
+      <li>Wiedźmin. Ostatnie życzenie.</li>
+      <li>Harry Potter. Kamień filozoficzny.</li>
+    </ul>
+    <footer>Aplikacja przygotowana przez Mateusz Jabłoński</footer>
    </div>
   )
 }
