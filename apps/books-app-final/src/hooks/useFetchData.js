@@ -7,6 +7,8 @@ export const useFetchData = (endpoint) => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    console.log(import.meta.env.VITE_API_URL);
+
     const fetchData = async () => {
         setIsLoading(true);
         try {

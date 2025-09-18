@@ -1,27 +1,28 @@
 import { use, useState } from "react";
+import { useFetchData } from "../../hooks/useFetchData";
 // import { useFetchData } from "../hooks/useFetchData";
 
-const fetchReaders = async () => {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
+// const fetchReaders = async () => {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/users');
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         const data = await response.json();
 
-        return data;
+//         return data;
         
-    } catch (error) {
-        throw new Error('Failed to fetch readers: ' + error.message);
-    }
-}
+//     } catch (error) {
+//         throw new Error('Failed to fetch readers: ' + error.message);
+//     }
+// }
 
-const fetchReadersPromise = fetchReaders();
+// const fetchReadersPromise = fetchReaders();
 
 export const Readers = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const readers = use(fetchReadersPromise);
-    // const { data: readers } = useFetchData('users');
+    // const readers = use(fetchReadersPromise);
+    const { data: readers } = useFetchData('users');
 
     return (
         <div>
