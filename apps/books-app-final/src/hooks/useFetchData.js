@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 
 const API_URL = 'https://jsonplaceholder.typicode.com/';
 
-export const useFetchData = (endpoint) => {
+export const useFetchData = (path, isFile = false) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    console.log(import.meta.env.VITE_API_URL);
+    // statuses = 'idle' | 'loading' | 'error' | 'success'
+    // const [status, setStatus] = useState('idle');
+
+    const url = isFile ? `/${path}` : `${import.meta.env.VITE_API_URL}${path}`;
 
     const fetchData = async () => {
         setIsLoading(true);
+        // setStatus('loading');
         try {
-            const response = await fetch(`${API_URL}${endpoint}`);
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
