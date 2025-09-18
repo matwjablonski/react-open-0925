@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { Book } from "../Book/Book"
 import { useTestData } from "../../hooks/useTestData";
+import styles from './Books.module.css'
 
 export const Books = () => {
     const books = useTestData();
@@ -33,7 +34,7 @@ export const Books = () => {
             <h2>Lista książek</h2>
             {isTooHeight && <p style={{ color: 'red' }}>Masz masę książek!</p>}
             {!isTooHeight && <p style={{ color: 'green' }}>Zbieraj dalej</p>}
-            <ul ref={listRef}>
+            <ul ref={listRef} className={styles.list}>
                 {bookList.map((book) => (
                     <Book
                         key={book.title}
