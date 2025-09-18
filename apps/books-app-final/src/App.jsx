@@ -1,10 +1,12 @@
 import './App.css'
 import Header from './components/Header'
-import { Books } from './components/Books'
 import { Footer } from './components/Footer'
-import { Readers } from './components/Readers'
-import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { ReadersPage } from './pages/ReadersPage'
+import { HomePage } from './pages/HomePage'
+import { BooksPage } from './pages/BooksPage'
+import { BookPage } from './pages/BookPage'
+import { ContactPage } from './pages/ContactPage'
 
 function App() {
 
@@ -15,12 +17,11 @@ function App() {
     </Header>
   
     <Routes>
-      <Route path="/books"  element={<Books />} />
-      <Route path="/readers" element={
-        <Suspense fallback={<p>Ładowanie czytelników...</p>}>
-          <Readers />
-        </Suspense>
-      } />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/books"  element={<BooksPage />} />
+      <Route path="/book/:id" element={<BookPage />} />
+      <Route path="/readers" element={<ReadersPage />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
 
     <Footer />

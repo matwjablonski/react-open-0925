@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Vote } from "./Vote";
+import { Link } from "react-router";
 
 export const Book = ({ title, author, publicationDate, onRemove, ...rest }) => {
     const [isRead, setIsRead] = useState(false);
@@ -14,7 +15,7 @@ export const Book = ({ title, author, publicationDate, onRemove, ...rest }) => {
 
     return !rest.hide ? (
         <li {...rest}>
-            <Link to={`/books/${rest.id}`}>
+            <Link to={`/book/${rest.id}`}>
                 {title} [{isRead ? '✔️' : '❌'}] - {author} ({publicationDate})
             </Link>
             <button onClick={toggleReadStatus}>{isRead ? 'Usuń z przeczytanych' : 'Dodaj do przeczytanych'}</button>
