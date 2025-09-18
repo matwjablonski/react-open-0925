@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Vote } from "../Vote";
+import { Vote } from "../Vote/Vote";
 import { Link } from "react-router";
 
 export const Book = ({ title, author, publicationDate, onRemove, ...rest }) => {

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Readers } from "../components/Readers";
+import { Readers } from "../components/Readers/Readers";
 
 export const ReadersPage = () => {
     return (

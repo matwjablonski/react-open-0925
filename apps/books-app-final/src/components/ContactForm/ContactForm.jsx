@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
-import Form from "./Form/Form"
-import Input from "./Input"
+import Form from "../Form/Form"
+import Input from "../Input/Input"
 
 export const ContactForm = () => {
     const focusableInputRef = useRef();
