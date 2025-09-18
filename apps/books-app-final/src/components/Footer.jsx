@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ContactForm } from "./ContactForm";
+import { ContactData } from "./ContactData";
 
 export const Footer = () => {
     const [isContactVisible, setIsContactVisible] = useState(false);
@@ -15,9 +16,7 @@ export const Footer = () => {
             <ContactForm />
             <button onClick={toggleContactInfo}>{isContactVisible ? 'Ukryj' : 'Pokaż'} dane kontaktowe do twórcy</button>
             {isContactVisible && (
-                <p>
-                    Kontakt: mail@mateuszjablonski.com
-                </p>
+                <ContactData />
             )}
         </footer>
     )
