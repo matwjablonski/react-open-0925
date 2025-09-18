@@ -37,6 +37,7 @@ export const Books = () => {
                 {bookList.map((book) => (
                     <Book
                         key={book.title}
+                        id={book.id}
                         title={book.title}
                         author={book.author} 
                         publicationDate={book.publicationDate}

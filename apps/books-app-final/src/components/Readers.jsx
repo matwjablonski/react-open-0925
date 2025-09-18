@@ -1,4 +1,5 @@
 import { use, useState } from "react";
+// import { useFetchData } from "../hooks/useFetchData";
 
 const fetchReaders = async () => {
     try {
@@ -20,6 +21,7 @@ const fetchReadersPromise = fetchReaders();
 export const Readers = () => {
     const [isVisible, setIsVisible] = useState(false);
     const readers = use(fetchReadersPromise);
+    // const { data: readers } = useFetchData('users');
 
     return (
         <div>
