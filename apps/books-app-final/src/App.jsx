@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import { Books } from './components/Books'
 import { Footer } from './components/Footer'
-import { books } from './data'
+import { Readers } from './components/Readers'
 import { Suspense } from 'react'
 
 function App() {
@@ -12,7 +12,10 @@ function App() {
     <Header name="Mateusz">
       Jesteś zalogowany
     </Header>
-    <Books books={books} />
+    <Suspense fallback={<p>Ładowanie czytelników...</p>}>
+      <Readers />
+    </Suspense>
+    <Books />
     <Footer />
    </div>
   )

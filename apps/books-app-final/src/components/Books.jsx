@@ -1,7 +1,9 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { Book } from "./Book"
+import { useTestData } from "../hooks/useTestData";
 
-export const Books = ({ books }) => {
+export const Books = () => {
+    const books = useTestData();
     const [bookList, setBookList] = useState(books);
     const [isTooHeight, setIsTooHeight] = useState(false);
     const listRef = useRef();
@@ -28,6 +30,7 @@ export const Books = ({ books }) => {
 
     return (
         <div>
+            <h2>Lista książek</h2>
             {isTooHeight && <p style={{ color: 'red' }}>Masz masę książek!</p>}
             {!isTooHeight && <p style={{ color: 'green' }}>Zbieraj dalej</p>}
             <ul ref={listRef}>
