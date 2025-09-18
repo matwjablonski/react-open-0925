@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react"
-import { Book } from "./Book"
-import { useTestData } from "../hooks/useTestData";
+import { Book } from "../Book/Book"
+import { useTestData } from "../../hooks/useTestData";
 
 export const Books = () => {
     const books = useTestData();

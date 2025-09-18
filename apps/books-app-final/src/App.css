@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.navbar {
+  padding: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  gap: 1rem;
+  color: #222;
+  background: #e1e1e1;
+}

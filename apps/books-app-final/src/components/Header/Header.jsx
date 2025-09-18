@@ -1,5 +1,5 @@
-import { LoginForm } from "./LoginForm";
-import { Nav } from "./Nav";
+import { LoginForm } from "../LoginForm";
+import { Nav } from "../Nav";
 
 const Header = ({ name, children }) => {
     return (
