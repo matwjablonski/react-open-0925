@@ -2,11 +2,11 @@ import { LoginForm } from "../LoginForm/LoginForm";
 import { Nav } from "../Nav/Nav";
 import { StyledAvatar } from "./Header.styled";
 
-const Header = ({ name, children }) => {
+const Header = ({ name, children, onLogin }) => {
     return (
         <div>
             <StyledAvatar src="https://placehold.co/150" />
-            <LoginForm />
+            <LoginForm onLogin={onLogin} />
             <Nav />
             <h1>Witaj w aplikacji książkowej {name}</h1>
             {children}
