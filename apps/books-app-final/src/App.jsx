@@ -3,6 +3,7 @@ import Header from './components/Header'
 import { Books } from './components/Books'
 import { Footer } from './components/Footer'
 import { books } from './data'
+import { Suspense } from 'react'
 
 function App() {
 
