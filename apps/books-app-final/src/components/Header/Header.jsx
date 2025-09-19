@@ -4,10 +4,12 @@ import { Nav } from "../Nav/Nav";
 import { StyledAvatar } from "./Header.styled";
 import { Modal } from "../Modal/Modal";
 import { UserContext } from "../../context/UserContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
-const Header = ({ name, children, isAuth }) => {
+const Header = ({ children, welcomeMsg }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { user } = useContext(UserContext);
+    const { user, isAuth } = useContext(UserContext);
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
@@ -17,8 +19,9 @@ const Header = ({ name, children, isAuth }) => {
         <div>
             {isAuth ? <StyledAvatar src="https://placehold.co/150" alt={user.name} /> : <button onClick={() => setIsModalOpen(true)}>Zaloguj</button>}
             <Nav />
-            <h1>Witaj w aplikacji książkowej {name}</h1>
+            {welcomeMsg}
             {children}
+            <button onClick={() => setTheme((prev) => prev === 'light' ? 'dark' : 'light')}>Zmień motyw na {theme === 'light' ? 'ciemny' : 'jasny'}</button>
             <Modal open={isModalOpen} onClose={handleCloseModal}>
                 <LoginForm onLogin={() => {
                     handleCloseModal();

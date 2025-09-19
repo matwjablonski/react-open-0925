@@ -28,7 +28,6 @@ export const Books = () => {
         document.title = `Twój zbiór książek liczy ${bookList.length} książek`;
     }, [bookList.length]);
 
-
     return (
         <div>
             <h2>Lista książek</h2>
