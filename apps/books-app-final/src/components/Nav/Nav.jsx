@@ -1,4 +1,5 @@
 import { Link } from "react-router"
+import { Modal } from "../Modal/Modal"
 
 export const Nav = () => {
 
@@ -8,6 +9,7 @@ export const Nav = () => {
             <Link to="/readers">Czytelnicy</Link>
             <Link to="/books">Książki</Link>
             <Link to="/contact">Kontakt</Link>
+            <Modal open={true} />
         </nav>
     )
 }
