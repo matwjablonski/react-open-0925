@@ -2,6 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Header from './Header';
 import store from '../../store/store';
 import { Provider } from 'react-redux';
+import { it, expect, describe } from "vitest";
 
 describe('Header', () => {
 	it('user click login button modal with login form appears', () => {
