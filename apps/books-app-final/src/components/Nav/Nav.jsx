@@ -9,7 +9,6 @@ export const Nav = () => {
             <Link to="/readers">Czytelnicy</Link>
             <Link to="/books">Książki</Link>
             <Link to="/contact">Kontakt</Link>
-            <Modal open={true} />
         </nav>
     )
 }

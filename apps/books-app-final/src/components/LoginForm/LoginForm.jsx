@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const LoginForm = ({ onLogin }) => {
     const usernameRef = useRef();
     const passwordRef = useRef();
+    const { handleLogin } = useContext(UserContext);
 
     return (
         <form onSubmit={(e) => {
@@ -11,6 +13,7 @@ export const LoginForm = ({ onLogin }) => {
                 username: usernameRef.current.value,
                 password: passwordRef.current.value
             });
+            handleLogin();
             onLogin();
         }}>
             <input type="text" name="username" placeholder="Nazwa użytkownika" ref={usernameRef} />
