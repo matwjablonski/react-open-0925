@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ThemeContextProvider } from "./context/ThemeContext";
 import { UserContextProvider } from "./context/UserContext";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 export const Providers = ({ children }) => {
  const [isAuth, setIsAuth] = useState(false);
@@ -13,10 +15,12 @@ export const Providers = ({ children }) => {
   }
 
     return (
-        <ThemeContextProvider value={{ theme, setTheme }}>
-            <UserContextProvider value={{ isAuth, handleLogin, user }}>
-                {children}
-            </UserContextProvider>
-        </ThemeContextProvider>
+        <Provider store={store}>
+            <ThemeContextProvider value={{ theme, setTheme }}>
+                <UserContextProvider value={{ isAuth, handleLogin, user }}>
+                    {children}
+                </UserContextProvider>
+            </ThemeContextProvider>
+        </Provider>
     )
 };
