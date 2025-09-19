@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { Navigate } from "react-router";
-import { UserContext } from "../../context/UserContext";
+import { useSelector } from "react-redux";
 
 export const ProtectedRoute = ({ children }) => {
-    const { isAuth } = useContext(UserContext);
+    const isAuth = useSelector(state => state.user.isAuth);
 
     if (!isAuth) {
         return <Navigate to="/access-denied" replace />;

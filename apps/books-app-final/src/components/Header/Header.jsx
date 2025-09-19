@@ -3,12 +3,12 @@ import { LoginForm } from "../LoginForm/LoginForm";
 import { MemoizedNav as Nav } from "../Nav/Nav";
 import { StyledAvatar } from "./Header.styled";
 import { Modal } from "../Modal/Modal";
-import { UserContext } from "../../context/UserContext";
 import { ThemeContext } from "../../context/ThemeContext";
+import { useSelector } from "react-redux";
 
 const Header = ({ children, welcomeMsg }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { user, isAuth } = useContext(UserContext);
+    const { user, isAuth } = useSelector(state => state.user);
     const { theme, setTheme } = useContext(ThemeContext);
 
     const handleCloseModal = () => {
@@ -17,7 +17,7 @@ const Header = ({ children, welcomeMsg }) => {
 
     return (
         <div>
-            {isAuth ? <StyledAvatar src="https://placehold.co/150" alt={user.name} /> : <button onClick={() => setIsModalOpen(true)}>Zaloguj</button>}
+            {isAuth ? <StyledAvatar src="https://placehold.co/150" alt={user?.name} /> : <button onClick={() => setIsModalOpen(true)}>Zaloguj</button>}
             <Nav />
             {welcomeMsg}
             {children}

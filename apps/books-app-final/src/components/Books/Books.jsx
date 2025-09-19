@@ -1,11 +1,23 @@
 import { useEffect, useLayoutEffect, useRef, useState, useTransition } from "react"
 import { Book } from "../Book/Book"
-import { useTestData } from "../../hooks/useTestData";
 import styles from './Books.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBooks } from "../../slices/Books.slice";
 
 export const Books = () => {
-    const books = useTestData();
-    const [bookList, setBookList] = useState(books);
+    // const books = useTestData(   );
+    const dispatch = useDispatch();
+    const books = useSelector(state => state.books.books);
+    const [bookList, setBookList] = useState([]);
+
+    useEffect(() => {
+        dispatch(fetchBooks());
+    }, [dispatch]);
+
+    useEffect(() => {
+        setBookList(books);
+    }, [books]);
+
     const [isTooHeight, setIsTooHeight] = useState(false);
     const listRef = useRef();
     const [isPending, startTransition] = useTransition();

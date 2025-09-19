@@ -1,10 +1,11 @@
-import { useContext, useRef } from "react";
-import { UserContext } from "../../context/UserContext";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../slices/User.slice";
 
 export const LoginForm = ({ onLogin }) => {
     const usernameRef = useRef();
     const passwordRef = useRef();
-    const { handleLogin } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     return (
         <form onSubmit={(e) => {
@@ -13,7 +14,9 @@ export const LoginForm = ({ onLogin }) => {
                 username: usernameRef.current.value,
                 password: passwordRef.current.value
             });
-            handleLogin();
+            dispatch(login({
+                name: usernameRef.current.value,
+            }));
             onLogin();
         }}>
             <input type="text" name="username" placeholder="Nazwa użytkownika" ref={usernameRef} />
