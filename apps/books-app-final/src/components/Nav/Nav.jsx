@@ -1,7 +1,7 @@
+import { memo } from "react"
 import { Link } from "react-router"
-import { Modal } from "../Modal/Modal"
 
-export const Nav = () => {
+const Nav = () => {
 
     return (
         <nav className="navbar">
@@ -12,3 +12,5 @@ export const Nav = () => {
         </nav>
     )
 }
+
+export const MemoizedNav = memo(Nav)

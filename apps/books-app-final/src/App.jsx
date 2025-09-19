@@ -2,15 +2,15 @@ import './App.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import { Routes, Route } from 'react-router-dom'
-import { BooksPage } from './pages/BooksPage'
-import { BookPage } from './pages/BookPage'
-import { ContactPage } from './pages/ContactPage'
 import { ProtectedRoute } from './components/ProtectedRoute/ProtectedRoute'
 import { Providers } from './Providers'
 import { lazy, Suspense } from 'react'
 
 const LazyReadersPage = lazy(() => import('./pages/ReadersPage'));
 const LazyHomePage = lazy(() => import('./pages/HomePage').then(module => ({ default: module.HomePage })));
+const LazyBooksPage = lazy(() => import('./pages/BooksPage').then(module => ({ default: module.BooksPage })));
+const LazyBookPage = lazy(() => import('./pages/BookPage').then(module => ({ default: module.BookPage })));
+const LazyContactPage = lazy(() => import('./pages/ContactPage').then(module => ({ default: module.ContactPage })));
 
 function App() {
   const name = "Mateusz";
@@ -28,12 +28,12 @@ function App() {
             <Route path="/" element={<LazyHomePage />} />
             <Route path="/books"  element={
               <ProtectedRoute>
-                <BooksPage />
+                <LazyBooksPage />
               </ProtectedRoute>
             } />
             <Route path="/book/:id" element={
               <ProtectedRoute>
-                <BookPage />
+                <LazyBookPage />
               </ProtectedRoute>
             } />
             <Route path="/readers" element={
@@ -41,7 +41,7 @@ function App() {
                 <LazyReadersPage />
               </ProtectedRoute>
             } />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/contact" element={<LazyContactPage />} />
             <Route path="/access-denied" element={<h2>Brak dostępu. Zaloguj się aby zobaczyć zawartość</h2>} />
           </Routes>
         </Suspense>

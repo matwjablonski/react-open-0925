@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ContactForm } from "../components/ContactForm/ContactForm";
 import { ContactData } from "../components/ContactData/ContactData";
 
 export const ContactPage = () => {
     const [isContactVisible, setIsContactVisible] = useState(false);
 
-    const toggleContactInfo = () => {
+    const toggleContactInfo = useCallback(() => {
         setIsContactVisible((prev) => !prev);
-    }
+    }, []);
 
     return (
         <div>

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { LoginForm } from "../LoginForm/LoginForm";
-import { Nav } from "../Nav/Nav";
+import { MemoizedNav as Nav } from "../Nav/Nav";
 import { StyledAvatar } from "./Header.styled";
 import { Modal } from "../Modal/Modal";
 import { UserContext } from "../../context/UserContext";

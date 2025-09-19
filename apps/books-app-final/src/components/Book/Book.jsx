@@ -14,7 +14,7 @@ export const Book = ({ title, author, publicationDate, onRemove, ...rest }) => {
     // }
 
     return !rest.hide ? (
-        <li {...rest}>
+        <li {...rest} style={{ marginBottom: '10px' }}>
             <Link to={`/book/${rest.id}`}>
                 {title} [{isRead ? '✔️' : '❌'}] - {author} ({publicationDate})
             </Link>

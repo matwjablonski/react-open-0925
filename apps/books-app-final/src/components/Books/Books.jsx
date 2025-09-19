@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react"
+import { useEffect, useLayoutEffect, useRef, useState, useTransition } from "react"
 import { Book } from "../Book/Book"
 import { useTestData } from "../../hooks/useTestData";
 import styles from './Books.module.css'
@@ -8,10 +8,13 @@ export const Books = () => {
     const [bookList, setBookList] = useState(books);
     const [isTooHeight, setIsTooHeight] = useState(false);
     const listRef = useRef();
+    const [isPending, startTransition] = useTransition();
 
-    const handleRemoveBook = (id) => {
-        const filterBooks = (prev) => prev.filter(({ id: bookId }) => bookId !== id)
-        setBookList(filterBooks);
+    const handleRemoveBook = (id) => { 
+        startTransition(() => {
+            const filterBooks = (prev) => prev.filter(({ id: bookId }) => bookId !== id)
+            setBookList(filterBooks);
+        });
     }
 
     const checkBooksHeight = (element) => {
@@ -31,6 +34,7 @@ export const Books = () => {
     return (
         <div>
             <h2>Lista książek</h2>
+            {isPending && <p>Usuwanie książki...</p>}
             {isTooHeight && <p style={{ color: 'red' }}>Masz masę książek!</p>}
             {!isTooHeight && <p style={{ color: 'green' }}>Zbieraj dalej</p>}
             <ul ref={listRef} className={styles.list}>
