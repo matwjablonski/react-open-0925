@@ -23,9 +23,11 @@ const Header = ({ children, welcomeMsg }) => {
             {children}
             <button onClick={() => setTheme((prev) => prev === 'light' ? 'dark' : 'light')}>Zmień motyw na {theme === 'light' ? 'ciemny' : 'jasny'}</button>
             <Modal open={isModalOpen} onClose={handleCloseModal}>
-                <LoginForm onLogin={() => {
-                    handleCloseModal();
-                }} />
+                <div data-testid="login-form">
+                    <LoginForm onLogin={() => {
+                        handleCloseModal();
+                    }} />
+                </div>
             </Modal>
         </div>
     )
